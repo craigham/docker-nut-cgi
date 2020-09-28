@@ -1,5 +1,5 @@
 # Docker-nut-cgi
-Alpine Linux Docker running nut-cgi.
+Docker running nut-cgi.
 
 ## References
 https://networkupstools.org
