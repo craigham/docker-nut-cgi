@@ -6,6 +6,9 @@ RUN apt-get install --no-install-recommends --yes \
 	nut-cgi;
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*;
 
+# make backup of nut hosts file, so we can rebuild it each startup
+RUN mv /etc/nut/hosts.conf /etc/nut/hosts.conf.original
+
 COPY entrypoint.sh /
 RUN  chmod +x /entrypoint.sh;
 
