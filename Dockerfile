@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-ubuntu:bionic
+FROM lscr.io/linuxserver/baseimage-ubuntu:bionic
 
 RUN apt-get update;
 RUN apt-get install --no-install-recommends --yes \
