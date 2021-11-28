@@ -5,7 +5,7 @@ Docker running nut-cgi.
 https://networkupstools.org
 
 ## Build
-    docker build --pull --no-cache -t danchal/nut-cgi:latest .
+    docker build --pull -t danchal/nut-cgi:latest .
 
 ## Push
     docker push danchal/nut-cgi:latest
