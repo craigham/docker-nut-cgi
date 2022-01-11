@@ -1,5 +1,5 @@
 # FROM lscr.io/linuxserver/baseimage-ubuntu:bionic
-FROM python:3.8-slim 
+FROM ubuntu:22.04
 RUN apt-get update;
 RUN apt-get install --no-install-recommends --yes \
 	lighttpd \
