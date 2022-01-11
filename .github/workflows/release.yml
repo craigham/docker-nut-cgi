@@ -62,7 +62,7 @@ jobs:
           context: .
           file: ./Dockerfile
           target: build-image
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.prep.outputs.tags }}
           cache-from: type=local,src=/tmp/.buildx-cache
@@ -71,13 +71,13 @@ jobs:
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
       
-      - name: Slack Notification
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ job.status }}
-          fields: repo,message,commit,author,ref,workflow, run_id # selectable (default: repo,message)
-          text: 'Pushed: ${{ steps.prep.outputs.tags}}'
-        env:
-          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # optional
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} 
-        if: success() 
+      # - name: Slack Notification
+      #   uses: 8398a7/action-slack@v3
+      #   with:
+      #     status: ${{ job.status }}
+      #     fields: repo,message,commit,author,ref,workflow, run_id # selectable (default: repo,message)
+      #     text: 'Pushed: ${{ steps.prep.outputs.tags}}'
+      #   env:
+      #     #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # optional
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} 
+      #   if: success() 
